@@ -39,48 +39,48 @@ function DataFile(TSTART,TSTOP,Ts)
 # data_dictionary  - Data dictionary instance (holds model parameters)
 # ----------------------------------------------------------------------------------- #
 
-# Feed parameters -
-feed_parameter_array = zeros(3);
-feed_parameter_array[1] = 10.0;   # 1 SIN
-feed_parameter_array[2] = 0.0;    # 2 PIN
-feed_parameter_array[3] = 0.0;    # 3 XIN
-
-# Kinetic parameters -
-kinetic_parameter_array = zeros(8);
-kinetic_parameter_array[1] = 0.6;   # 1 YXS
-kinetic_parameter_array[2] = 1.0;   # 2 YPS
-kinetic_parameter_array[3] = 0.5;   # 3 YXP
-kinetic_parameter_array[4] = 0.65;   # 4 mugmax
-kinetic_parameter_array[5] = 1.5;   # 5 KGS
-kinetic_parameter_array[6] = 0.05;   # 6 kd
-kinetic_parameter_array[7] = 0.0;   # 7 maintenance
-kinetic_parameter_array[8] = 0.0;   # 8 non-specific production
-
-# Flow rate array - (t,FIN,FOUT)
-flow_rate_array = [
-  0 0 0 ;
-  0.1 0.0 0.0 ;
-  2 0.0 0.0 ;
-  100 0.0 0.0  ;
-];
-
-# -or-
-dilution_rate = 0.1;
-
 # Initial conditions in the reactor -
 initial_condition_array = zeros(4);
-initial_condition_array[1] = 10.0; # 1 S
+initial_condition_array[1] = 1.0;  # 1 S
 initial_condition_array[2] = 0.0;  # 2 P
 initial_condition_array[3] = 0.1;  # 3 X
 initial_condition_array[4] = 1.0;  # 4 V
+
+
+# Kinetic parameters -
+kinetic_parameter_array = zeros(8);
+kinetic_parameter_array[1] = 0.5;   # 1 YXS
+kinetic_parameter_array[2] = 0.6;   # 2 YPS
+kinetic_parameter_array[3] = 0.5;   # 3 YXP
+kinetic_parameter_array[4] = 0.75;   # 4 mugmax
+kinetic_parameter_array[5] = 1.5;   # 5 KGS
+kinetic_parameter_array[6] = 0.05;   # 6 kd
+kinetic_parameter_array[7] = 0.0;   # 7 maintenance
+kinetic_parameter_array[8] = 0.1;   # 8 non-specific production
+
+# Feed parameters -
+feed_parameter_array = zeros(3);
+feed_parameter_array[1] = 50.0;   # 1 SIN
+feed_parameter_array[2] = 0.0;    # 2 PIN
+feed_parameter_array[3] = 0.0;    # 3 XIN
+
+# For chemostats, we set the diltuin rate -
+dilution_rate = 0;
+
+# For fed-batch culutes we set parameters which appear in the
+# input flow model -
+flow_model_parameter_array = zeros(3);
+flow_model_parameter_array[1] = 0.1;
+flow_model_parameter_array[2] = 0.001;
+flow_model_parameter_array[3] = 5.0;
 
 # ---------------------------- DO NOT EDIT BELOW THIS LINE -------------------------- #
 data_dictionary = Dict();
 data_dictionary["FEED_PARAMETER_ARRAY"] = feed_parameter_array;
 data_dictionary["KINETIC_PARAMETER_ARRAY"]= kinetic_parameter_array;
-data_dictionary["FLOW_RATE_ARRAY"] = flow_rate_array;
 data_dictionary["INITIAL_CONDITION_ARRAY"] = initial_condition_array;
 data_dictionary["DILUTION_RATE"] = dilution_rate;
+data_dictionary["FLOW_MODEL_PARAMETER_ARRAY"] = flow_model_parameter_array;
 # ----------------------------------------------------------------------------------- #
 return data_dictionary;
 end
