@@ -50,7 +50,7 @@ initial_condition_vector = data_dictionary["INITIAL_CONDITION_ARRAY"];
 
 # Call the ODE solver -
 fbalances(t,y,ydot) = Balances(t,y,ydot,data_dictionary,flow_function);
-X = Sundials.cvode(fbalances,initial_condition_vector,TSIM,reltol=1e-6,abstol=1e-8);
+X = Sundials.cvode(fbalances,initial_condition_vector,TSIM,reltol=1e-8,abstol=1e-10);
 
 return (TSIM,X);
 end

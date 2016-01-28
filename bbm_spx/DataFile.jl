@@ -55,8 +55,8 @@ kinetic_parameter_array[3] = 0.5;   # 3 YXP
 kinetic_parameter_array[4] = 0.75;   # 4 mugmax
 kinetic_parameter_array[5] = 1.5;   # 5 KGS
 kinetic_parameter_array[6] = 0.05;   # 6 kd
-kinetic_parameter_array[7] = 0.0;   # 7 maintenance
-kinetic_parameter_array[8] = 0.1;   # 8 non-specific production
+kinetic_parameter_array[7] = 0.08;   # 7 maintenance
+kinetic_parameter_array[8] = 0.0;   # 8 non-specific production
 
 # Feed parameters -
 feed_parameter_array = zeros(3);

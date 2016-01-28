@@ -46,22 +46,25 @@ function Kinetics(t,x,data_dictionary)
   specific_grow_rate = mugmax*(S)/(KGS + S);
 
   # specific_rate_vector[1] = qS
-  specific_rate_vector[1] = specific_grow_rate + ms;
+  specific_rate_vector[1] = specific_grow_rate + YXS*ms;
 
   # specific_rate_vector[2] = qP
   #specific_rate_vector[2] = (1/YXP)*specific_grow_rate + mp;
 
-  # if (specific_grow_rate<0.1*mugmax)
-  #   specific_rate_vector[2] = (1/YXP)*specific_grow_rate + mp;
-  # else
-  #   specific_rate_vector[2] = (1/YXP)*specific_grow_rate;
-  # end
-
   if (specific_grow_rate<0.1*mugmax)
-    specific_rate_vector[2] = mp;
+    specific_rate_vector[2] = (1/YXP)*specific_grow_rate + mp;
   else
-    specific_rate_vector[2] = 0;
+    specific_rate_vector[2] = (1/YXP)*specific_grow_rate;
   end
+
+  # no product -
+  specific_rate_vector[2] = 0.0;
+
+  # if (specific_grow_rate<0.1*mugmax)
+  #   specific_rate_vector[2] = mp;
+  # else
+  #   specific_rate_vector[2] = 0;
+  # end
 
 
 

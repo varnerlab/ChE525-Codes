@@ -33,7 +33,7 @@ function BatchFlow(t,x,data_dictionary)
   return flow_vector;
 end
 
-function SteadyStateFlow(t,x,data_dictionary)
+function ChemostatFlow(t,x,data_dictionary)
 
   # Alias the species vector -
   S = x[1];

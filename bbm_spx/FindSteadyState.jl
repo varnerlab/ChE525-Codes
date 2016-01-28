@@ -1,5 +1,5 @@
 include("SolveBalances.jl")
-include("SSBalances.jl")
+include("Flow.jl")
 
 function FindSteadyState(data_dictionary)
 
@@ -16,7 +16,7 @@ function FindSteadyState(data_dictionary)
     TSTOP_NEXT = TSTART_NEXT + 100;
 
     # Evaluate the model equations -
-    (TP1,XP1) = SolveBalances(TSTART_NEXT,TSTOP_NEXT,Ts,data_dictionary);
+    (TP1,XP1) = SolveBalances(TSTART_NEXT,TSTOP_NEXT,Ts,data_dictionary,ChemostatFlow);
 
 
     ## PHASE 2 -
@@ -29,7 +29,7 @@ function FindSteadyState(data_dictionary)
     TSTOP_NEXT = TSTART_NEXT + 100;
 
     # Evaluate the model equations -
-    (TP2,XP2) = SolveBalances(TSTART_NEXT,TSTOP_NEXT,Ts,data_dictionary);
+    (TP2,XP2) = SolveBalances(TSTART_NEXT,TSTOP_NEXT,Ts,data_dictionary,ChemostatFlow);
 
     # What is the difference between XP1 ands XP2?
     ERROR = norm(XP1 - XP2);
