@@ -95,11 +95,12 @@ function FedbatchExpFlow(t,x,data_dictionary)
   DOUT = 0;
 
   # initialize the flow vector -
-  flow_vector = zeros(4);
+  flow_vector = zeros(5);
   flow_vector[1] = DIN*SIN - DOUT*S;
   flow_vector[2] = DIN*PIN - DOUT*P;
   flow_vector[3] = DIN*XIN - DOUT*X;
   flow_vector[4] = DIN - DOUT;
+  flow_vector[5] = DIN;
 
   # return -
   return flow_vector;

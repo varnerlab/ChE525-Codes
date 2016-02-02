@@ -58,7 +58,7 @@ function Kinetics(t,x,data_dictionary)
   end
 
   # no product -
-  specific_rate_vector[2] = 0.0;
+  # specific_rate_vector[2] = 0.0;
 
   # if (specific_grow_rate<0.1*mugmax)
   #   specific_rate_vector[2] = mp;

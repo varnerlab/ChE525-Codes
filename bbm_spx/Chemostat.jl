@@ -4,20 +4,19 @@
 # includes -
 include("DataFile.jl")
 include("FindSteadyState.jl")
-using NLsolve;
 
 # Setup dummy time scale (required by the DF) -
 TSTART = 0;
 TSTOP = 100;
 Ts = 0.0;
-SIGMA = 0.1;
+SIGMA = 0.0;
 
 # Load the data dictionary -
 data_dictionary = DataFile(TSTART,TSTOP,Ts);
 
 # setup diltion array -
 number_of_steps = 1000;
-dilution_rate_array = linspace(0.01,1.0,number_of_steps);
+dilution_rate_array = linspace(0.01,0.8,number_of_steps);
 
 # Setup data array -
 results_array = zeros(100,4);
@@ -48,6 +47,6 @@ for dilution_rate in dilution_rate_array
 end
 
 # Write results file -
-filename = "DS_NoProduct.dat";
-Z = round(results_array,2);
-writedlm(filename,Z,"\t");
+#filename = "DS_Product.dat";
+#Z = round(results_array,2);
+#writedlm(filename,Z,"\t");

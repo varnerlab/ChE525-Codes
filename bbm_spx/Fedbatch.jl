@@ -15,7 +15,7 @@ flow_function = FedbatchExpFlow;
 
 # Setup the timescale for phase 1 -
 TSTART_P1 = 0;
-TSTOP_P1 = 30.0;
+TSTOP_P1 = 36.0;
 Ts_P1 = 0.01;
 
 # Solve the balance equations -

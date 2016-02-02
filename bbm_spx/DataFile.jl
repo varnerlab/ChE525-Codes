@@ -70,8 +70,8 @@ dilution_rate = 0;
 # For fed-batch culutes we set parameters which appear in the
 # input flow model -
 flow_model_parameter_array = zeros(3);
-flow_model_parameter_array[1] = 0.1;
-flow_model_parameter_array[2] = 0.001;
+flow_model_parameter_array[1] = 0.2;
+flow_model_parameter_array[2] = 0.005;
 flow_model_parameter_array[3] = 5.0;
 
 # ---------------------------- DO NOT EDIT BELOW THIS LINE -------------------------- #
