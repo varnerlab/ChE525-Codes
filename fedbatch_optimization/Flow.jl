@@ -125,8 +125,11 @@ function DyanmicInterpFlow(t,x,data_dictionary)
   time_array = flow_rate_array[:,1];
   FIN_array = flow_rate_array[:,2];
 
-  # interpolate the FIN and FOUT to the current time point -
-  I_FIN = np.interp(t,time_array,FIN_array);
+  I_FIN = 0.0;
+  if (t>5)
+    # interpolate the FIN and FOUT to the current time point -
+    I_FIN = np.interp(t,time_array,FIN_array);
+  end
 
   # Calculate the dilution rate -
   DIN = I_FIN/V;
